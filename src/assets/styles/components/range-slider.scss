@@ -1,0 +1,47 @@
+.range-slider {
+  width: 100%;
+
+  &__input {
+    width: 100%;
+    height: rem-calc($range-slider-height);
+    @include position(absolute, $zIndex: 2);
+    -webkit-appearance: none;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .slider {
+    width: 100%;
+    height: rem-calc($range-slider-height);
+    @include position(relative, $zIndex: 1);
+
+    &__truck {
+      @include position(absolute, 0, 0, 0, 0, 1);
+      background-color: $range-slider-bg-color;
+    }
+
+    &__range {
+      @include position(absolute, 0, 25%, 0, 25%, 1);
+      background-color: $range-slider-active-color;
+    }
+
+    &__thumb {
+      width: rem-calc($range-slider-thumb-size);
+      height: rem-calc($range-slider-thumb-size);
+      @include position(absolute, 50%, $zIndex: 3);
+      transform: translateY(-50%);
+      cursor: pointer;
+      background-color: $range-slider-active-color;
+      box-shadow: 2px 0 4px rgba($black, .2);
+      border-radius: $radius-circle;
+
+      &_left {
+        left: 25%
+      }
+
+      &_right {
+        right: 25%;
+      }
+    }
+  }
+}
