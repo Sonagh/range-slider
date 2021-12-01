@@ -1,0 +1,52 @@
+.custom-range-slider {
+  --dif: calc(var(--max) - var(--min));
+  width: 100%;
+  height: 100%;
+  background: $range-slider-bg-color;
+  display: grid;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    background-color: $range-slider-active-color
+  }
+
+  &::before {
+    width: calc((var(--range2) - var(--range1))/var(--dif)*100%);
+    margin-left: calc((var(--range1) - var(--min))/var(--dif)*100%);
+  }
+
+  &::after {
+    width: calc((var(--range1) - var(--range2))/var(--dif)*100%);
+    margin-left: calc((var(--range2) - var(--min))/var(--dif)*100%);
+  }
+
+
+  &__input {
+    &,
+    &::-webkit-slider-runnable-track,
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+
+    width: 100%;
+    height: 100%;
+    @include position(absolute, $zIndex: 1);
+    margin: 0;
+    background: none;
+    pointer-events: none;
+
+    &::-webkit-slider-thumb {
+      width: rem-calc($range-slider-thumb-size);
+      height: rem-calc($range-slider-thumb-size);
+      cursor: pointer;
+      pointer-events: auto;
+      background: $range-slider-active-color;
+      box-shadow: 2px 0 4px rgba($black, .2);
+      border-radius: $radius-circle;
+    }
+
+  }
+}
