@@ -1,5 +1,10 @@
 .range-slider-wrapper {
   width: 30%;
+  height: rem-calc($range-slider-height);
   max-width: rem-calc(500px);
   position: relative;
+
+  + .range-slider-wrapper {
+    margin-top: rem-calc(60px);
+  }
 }

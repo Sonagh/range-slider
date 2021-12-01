@@ -8,14 +8,12 @@ export default function RangeSlider({ thumbLeft, thumbRight }) {
         type="range"
         min="0"
         max="100"
-        value={thumbLeft}
         className="range-slider__input"
       />
       <input
         type="range"
         min="0"
         max="100"
-        value={thumbRight}
         className="range-slider__input"
       />
 
